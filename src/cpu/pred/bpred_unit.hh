@@ -292,6 +292,7 @@ class BPredUnit : public SimObject
         Stats::Scalar BTBHits;
         /** Stat for percent times an entry in BTB found. */
         Stats::Formula BTBHitPct;
+        Stats::Formula BTBMissPct;
         /** Stat for number of times the RAS is used to get a target. */
         Stats::Scalar RASUsed;
         /** Stat for number of times the RAS is incorrect. */

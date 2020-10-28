@@ -390,6 +390,14 @@ BaseSimpleCPU::regStats()
             .name(thread_str + ".BranchMispred")
             .desc("Number of branch mispredictions")
             .prereq(t_info.numBranchMispred);
+
+        t_info.BranchMispredPercent
+            .name(thread_str + ".BranchMispredPercent")
+            .desc("Percent of branch mispredictions")
+            .prereq(t_info.numBranchMispred)
+            .prereq(t_info.numBranches);
+        t_info.BranchMispredPercent =
+        (t_info.numBranchMispred / t_info.numBranches)*100;
     }
 }
 
