@@ -59,7 +59,7 @@ class BranchPredictor(SimObject):
     abstract = True
 
     numThreads = Param.Unsigned(Parent.numThreads, "Number of threads")
-    BTBEntries = Param.Unsigned(4096, "Number of BTB entries")
+    BTBEntries = Param.Unsigned(2048, "Number of BTB entries")
     BTBTagSize = Param.Unsigned(16, "Size of the BTB tags, in bits")
     RASSize = Param.Unsigned(16, "RAS size")
     instShiftAmt = Param.Unsigned(2, "Number of bits to shift instructions by")
@@ -72,7 +72,7 @@ class LocalBP(BranchPredictor):
     cxx_class = 'LocalBP'
     cxx_header = "cpu/pred/2bit_local.hh"
 
-    localPredictorSize = Param.Unsigned(2048, "Size of local predictor")
+    localPredictorSize = Param.Unsigned(1024, "Size of local predictor")
     localCtrBits = Param.Unsigned(2, "Bits per counter")
 
 
@@ -81,12 +81,12 @@ class TournamentBP(BranchPredictor):
     cxx_class = 'TournamentBP'
     cxx_header = "cpu/pred/tournament.hh"
 
-    localPredictorSize = Param.Unsigned(2048, "Size of local predictor")
+    localPredictorSize = Param.Unsigned(1024, "Size of local predictor")
     localCtrBits = Param.Unsigned(2, "Bits per counter")
     localHistoryTableSize = Param.Unsigned(2048, "size of local history table")
-    globalPredictorSize = Param.Unsigned(8192, "Size of global predictor")
+    globalPredictorSize = Param.Unsigned(4096, "Size of global predictor")
     globalCtrBits = Param.Unsigned(2, "Bits per counter")
-    choicePredictorSize = Param.Unsigned(8192, "Size of choice predictor")
+    choicePredictorSize = Param.Unsigned(4096, "Size of choice predictor")
     choiceCtrBits = Param.Unsigned(2, "Bits of choice counters")
 
 
